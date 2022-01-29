@@ -1,0 +1,59 @@
+{% extends 'evote/main.html' %}
+{% block content %}
+    
+
+    <style type="text/css">
+    
+    body {
+    background-color: #fbeec1
+     }
+
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      }
+  
+    
+    .h3  {
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 2rem;
+      
+    }
+
+  </style>
+
+
+<div class="card" style="width: 18rem; margin:10rem auto;">
+<div class="card-body">
+ 
+  <form class="form-signin" method="POST">
+    {% csrf_token %}
+    <h1 class="h3 font-weight-normal card-title mb-4">LOGIN</h1>
+    <input type="email" name="email" id="inputEmail" class="form-control mb-3" placeholder="Email address" required autofocus>
+    {% if login_form.non_field_errors %}
+      <div style="color: red">
+        <p>{{login_form.non_field_errors}}</p>
+      </div>
+        
+    {% endif %}
+ 
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  
+    <button class="btn btn-lg btn-primary btn-block mt-3" type="submit" style="font-family: 'Roboto';">LOG IN</button>
+    <div class="d-flex flex-column mt-3">
+      <a class="m-auto" style="text-decoration: none; font-size: 1.3rem;" href="{% url 'password_reset' %}">Reset password</a>
+    </div>
+</form>
+</div>
+</div>
+  
+
+
+   
+  
+  
+  {% endblock %}

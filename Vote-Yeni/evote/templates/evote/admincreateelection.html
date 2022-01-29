@@ -1,0 +1,100 @@
+{% extends 'evote/adminmain.html' %}
+{% block contents %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
+
+
+<style>
+body {
+    background-color: #fbeec1
+}
+
+  h1 {text-align: center;
+  margin-top: 5rem;
+  font-family: 'Roboto','Arial';
+}
+ .container label{
+   font-family: 'Open Sans', sans-serif;
+   font-size: 1.5rem;
+   font-weight: 600;
+ }
+ .form-label {
+   color: rgba(148, 67, 20, 0.61);
+   
+ }
+
+ #field {
+    margin-bottom:20px;
+}
+  </style>
+  
+
+{% endblock %}
+
+{% block content %}
+
+
+<h1>ADMIN CREATE ELECTION</h1>
+
+<div class="container" style="width:60% ; margin: 2rem auto; font-family: 'Helvetica'">
+<form method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="vote_name" class="form-label">Vote Name</label>
+    <input type="text" class="form-control" id="vote_name" name="votename" placeholder="Vote Name">
+    
+  </div>
+  <div class="mb-3">
+    <label for="vote_code" class="form-label">Vote Code</label>
+    <input type="text" class="form-control" id="vote_code" name="votecode" placeholder="Vote Code">
+  </div>
+
+  <div class="mb-3">
+    <label for="vote_info" class="form-label">Vote Information</label>
+    <textarea rows="10" class="form-control" id="vote_info" name="voteinfo" placeholder="Vote Information"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="last_date" class="form-label">Last Date To Vote</label>
+    <input type="date" class="form-control" id="last_date" name="lastdate" placeholder="Last Date To Vote">
+  </div>
+  
+  
+  <h3 class="h3 text-center mt-3">Add Candidates</h3>
+  
+  <button type="button" id="add_fields" class="btn btn-md btn-primary mt-3">Add Candidates</button>
+  <button type="button" id="remove_fields" class="btn btn-md btn-danger mt-3">Remove Candidates</button>
+<div id="candidate_options">
+
+</div>
+  <input style="float: right; font-family: 'Roboto';" type="submit" class="btn btn-primary" name="create_election" value="Create Election">
+  </form>
+  
+  
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success" role="alert">
+    {{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
+</div>
+
+<script>
+  var candidate_options = document.getElementById('candidate_options');
+var add_fields = document.getElementById('add_fields');
+var remove_fields = document.getElementById('remove_fields');
+
+add_fields.onclick = function(){
+    var newField = document.createElement('input');
+    newField.setAttribute('type','text');
+    newField.setAttribute('id','c_name');
+    newField.setAttribute('name','candidate_options');
+    newField.setAttribute('class','form-control mt-3 mb-3');
+    newField.setAttribute('Placeholder','Candidate Name');
+    candidate_options.appendChild(newField)
+}
+</script>
+
+{% endblock %}

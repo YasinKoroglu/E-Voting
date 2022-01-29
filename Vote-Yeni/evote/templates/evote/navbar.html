@@ -1,0 +1,50 @@
+<style type="text/css">
+	@media (min-width: 768px) {
+	  html {
+	    font-size: 16px;
+	  }
+	}
+
+	.search-bar{
+		max-width: 500px;
+		width: 100%;
+	}
+	form{
+		width: 100%;
+	}
+	a{
+		font-size: 1.2rem;
+		font-family: 'Roboto';
+		text-decoration: none;
+	}
+	a:hover{
+	    background-color: red;
+	}
+</style>
+
+<!-- Header -->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  
+ 
+  <nav class="my-2 my-md-0 mr-md-3">
+  	
+	  	
+	  
+	    <a class="p-2 text-dark" href="{% url 'adminmenu' %}">Head Back To Menu</a>
+	    <a class="p-2 text-dark" href="{% url 'adminaccounts' %}">See Accounts</a>
+	    <a class="p-2 text-dark" href="{% url 'adminseeelection' %}">See Elections</a>
+	    <a class="p-2 text-dark" href="{% url 'admincreateelection' %}">Create Election</a>
+	    <a class="p-2 text-dark" href="{% url 'adminlogout' %}">Logout</a>
+
+	    
+		
+    
+  </nav>
+</div>
+
+<!-- End Header -->
+
+<script type="text/javascript">
+	document.getElementById("id_q").value = "{{query}}"
+</script>
+

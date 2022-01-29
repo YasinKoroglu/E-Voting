@@ -1,0 +1,123 @@
+{% extends 'evote/main.html'%}
+
+{% block contents %}
+{% load static %}
+<style>
+    body {
+      background-color: lightblue;
+  }
+  
+  .home-info-grey {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-image: url("https://miro.medium.com/max/1400/0*Z00APxGlGUdQpn5a.jpeg");
+  }
+  
+  .home-info-grey h2 {
+      color: whitesmoke;
+      font-weight: 700;
+      font-size: 16px;
+      font-style: italic
+  }
+  
+  .home-info-grey p {
+      color: white;
+      font-weight: 500;
+      font-size: 16px
+  }
+  
+  .drop-cap {
+      margin-right: 25px;
+      float: left;
+      text-align: center;
+      line-height: 1;
+      font-size: 50px
+  }
+  
+  .drop-cap-letter {
+      color: #ff8700;
+      font-size: 90px;
+      font-weight: 700;
+  }
+  
+  .drop-cap-text {
+      color: white;
+      font-size: 34px;
+      font-weight: 500
+  }
+  
+  .text p{
+      font-family: 'Roboto';
+      font-size: 1.15rem;
+  }
+  
+  .text h2{
+      font-family: 'Roboto';
+      font-size: 1.5rem;
+  }
+  
+  .container{
+      width: 75%;
+  }
+  </style>
+
+{%endblock%}
+
+{% block content %}
+
+
+ 
+<div style="margin: 2rem auto;"  id="carouselExampleIndicators" class="carousel slide w-75" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://kuorum.org/wp-content/uploads/2020/05/voto-electronico-validez-legal.jpg" class="d-block w-100" height="400rem"  alt="My images">
+      </div>
+      <div class="carousel-item">
+        <img src="https://platform.keesingtechnologies.com/wp-content/uploads/2020/02/shutterstock_1510448354.jpg" class="d-block w-100" height="400rem" alt="My images">
+      </div>
+      <div class="carousel-item">
+        <img src="https://d1y8sb8igg2f8e.cloudfront.net/images/shutterstock_1222770484.width-800.jpg" class="d-block w-100" height="400rem" alt="My images">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+    <section class="home-info-grey">
+      <div class="container">
+        <div class="drop-cap-text"> <span class="drop-cap"><span class="drop-cap-letter">T</span></span>here are no barriers to direct democracy.
+        </div>
+              <div class="text">
+                  <p>
+                    <h2>E-VOTING</h2>
+                  </p>
+                  <p><br>
+                    AN ELECTRONIC VOTING PLATFORM THAT PROVIDES A COMPLETELY REMOTE AND SECURE RESPONSE TO PARTICIPATION IN SMALL AND LARGE INSTITUTIONS.
+                    IT REMOVES BARRIES TO DIRECT DEMOKRACY AND ESTABLISHES THE GROUNDWORK FOR WIDESPREAD PARTICIPATION IN TRADE UNIONS AND ASSOCIATIONS,
+                    PROFESSIONAL ASSOCIATIONS, MUNICIPALITIES, BUSINESSES, UNIVERSITIES, CONDOMINUMS, AND OTHER INSTITUTIONS.
+                    <br>
+                    </p>
+              </div>
+          </div>
+      </div>
+  </section>
+   
+    <div class="card w-75" style="margin:5rem auto ">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: 'Roboto'; font-size: 1.5rem; color: blue;">Contact Us</h5>
+        <p class="card-text" style="font-family: 'Roboto'; font-size: 1.2rem;">Is there any problem about this site you can contact us in anytime! <br><br>  Contact Number: <a href="tel:05300395463" style="text-align: justify; font-size: 12pt; font-weight: bold; ">0530 039 5463</a> <br><a href = "mailto:hzr_ozbyhn@hotmail.com">Send Email To Us</a></p>     
+      </div>
+    </div>
+
+{% endblock %}

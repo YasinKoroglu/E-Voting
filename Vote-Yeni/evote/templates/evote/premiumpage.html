@@ -1,0 +1,27 @@
+{% extends 'evote/main.html' %}
+{% block content %}
+
+<style>
+  body{
+    background-color: #fbeec1;
+  }
+</style>
+<div class="card" style="width: 25rem; margin:5rem auto ">
+  <img class="card-img-top" src="https://www.confessionstories.org/theme/assets/images/backgrounds/premium-tier.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="h4 card-title text-center">Go Premium</h5>
+    <p class="card-text">If you want to be premium in this web site, you will pay 3$ dollars and get the Premium privileges.</p>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+          <input class="btn btn-primary" id="close_bid_button" type="submit" value="Get Premium for 3$">
+          
+      </div>
+  </form>
+
+  
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'evote/main.html' %}
+{% block content %}
+
+<style>
+  body{
+    background-color: #fbeec1;
+  }
+  .card{
+    background-color:  #f0dfa3;
+    font-size: 1.4rem;
+  }
+  
+</style>
+<div class="card" style="width: 20rem; margin: 12rem auto;">
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 1.1rem;">USE VOTE WITHOUT REGISTERING</h5>
+      <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+       <input type="submit" class="btn btn-md btn-primary mt-2" name="button" id="button" value="Send"> 
+    </form>
+    </div>
+  </div>
+
+<!--Lets just add a form that looks like a card that takes ssn of non-registered user and vode code-->
+{% endblock %}

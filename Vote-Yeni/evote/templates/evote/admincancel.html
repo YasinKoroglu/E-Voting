@@ -1,0 +1,92 @@
+{% extends 'evote/main.html' %}
+{% block content %}
+
+
+
+<style type="text/css">
+  body {
+     background-color: #fbeec1
+ }
+
+   .padding {
+     padding: 20rem
+ }
+
+ .card {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     background-color: #e4ce80;
+ }
+
+ .card .card-title {
+     color: white;
+     margin-bottom: 1px;
+     margin-left: 1px;
+     font-size: 0.999rem;
+     font-weight: 500
+ }
+ .table-responsive {
+     display: block;
+     width: 100%;
+ }
+
+
+
+
+ button {
+     background-color: sandybrown;
+     color: white;
+     outline: 0;
+ }
+
+ .form-control{
+     margin-right: 0.900rem;
+ }
+
+ .date{
+     margin-right: 0.500rem;
+ }
+
+ .badge {
+     border-radius: 5px;
+     font-size: 13px;
+     line-height: 1;
+     padding: .375rem .5625rem;
+ }
+</style>
+
+<div class="page-content page-container" id="page-content">
+     <div class="padding">
+         <div class="row container d-flex justify-content-center">
+             <div class="col-lg-8 grid-margin stretch-card">
+                 <div class="card">
+                     <div class="card-body">
+                         <h4 class="card-title text-center">CANCEL ELECTION</h4>
+                         <hr>
+                         <div class="table-responsive">
+                             <table id="faqs" class="table table-hover">
+                                 <thead>
+                                     <tr>
+                                         <th> Election Name</th>
+                                         <th>Date</th>
+                                         <th>Status</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr>
+                                         <td><input type="text" class="form-control" placeholder="Election Name"></td>
+                                         <td><input type="date" placeholder="Date" class="date"></td>
+                                         <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Cancel</button></td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+{% endblock %}

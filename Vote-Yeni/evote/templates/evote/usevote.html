@@ -1,0 +1,72 @@
+{% extends 'evote/main.html' %}
+{% block contents %}
+<style>
+  body{
+    background-color: #fbeec1;
+  }
+
+  .card{
+    background-color:  #eedda1;
+  }
+
+</style>
+{% endblock %}
+
+{% block content %}
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script>
+      $(document).ready(function(){
+        $('.form-check-input').click(function(){
+            var txt = "";
+            var txt2 = "";
+            var txt3 = "";
+            var txt4 = "";
+            $('.form-check-input:checked').each(function(){
+                txt+=String($(this).val())
+                txt2 += "{{vote.v_code}}"
+                txt3 += "{{vote.l_date}}"
+                txt4 += "{{request.user.username}}"
+            });
+            $('#txtvalues').val(txt);
+            $('#votevalues').val(txt2);
+            $('#votedate').val(txt3);
+            $('#whovoted').val(txt4);
+        });
+      });
+  </script>
+
+   
+
+    <div class="card" style="width: 50rem; margin: 10rem auto;">
+        <h3 class="h-3 py-2" style="text-align: center; border-bottom: 1px solid grey; color: brown;">Information About Voting</h3>
+        <div class="card-body">
+          <p class="card-text" style="color: black; font-size: 2rem;font-style: arial">{{vote.v_information}}</p>
+          <h5 class="text-center">Select Your Choice</h5>
+          <form method="POST">
+              {% csrf_token %}
+            <fieldset class="form-group" style="text-align: center; color: black;">
+              <div>
+                  {% for c in candidates %}
+               <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="{{c.c_name}}">
+                    <label class="form-check-label" for="gridRadios1">
+                      {{c.c_name}}
+                    </label>
+                  </div>
+                  {% endfor %}
+                
+              </div>
+            </fieldset>
+            <input class="mb-3" type="text" name="coursename" id="txtvalues" hidden><br>
+            <input class="mb-3" type="text" name="votename" id="votevalues" hidden><br>
+            <input class="mb-3" type="text" name="votedate" id="votedate" hidden><br>
+            <input class="mb-3" type="text" name="whovoted" id="whovoted" hidden><br>
+            <input type="submit" value="Send">
+          </form>
+          
+        </div>
+      </div>
+{% endblock %}

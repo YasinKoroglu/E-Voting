@@ -1,0 +1,100 @@
+{% extends 'evote/main.html' %}
+{% block contents %}
+<style>
+  a{
+    font-family: 'Roboto';
+  }
+  h4 { 
+      font-family: serif;
+      color: 	#000;
+      text-align: center;
+      animation: animate 
+          5s linear infinite;
+  }
+
+  body{
+    background-color: #fbeec1;
+  }
+  h2{
+    color: brown;
+    font-family: 'Roboto';
+    font-size: 1.5rem;
+  }
+
+  @keyframes animate {
+      0% {
+          opacity: 0;
+      }
+
+      50% {
+          opacity: 0.7;
+      }
+
+      100% {
+          opacity: 0;
+      }
+  }
+</style>
+{% endblock %}
+   {% block content%} 
+   
+   
+    <h2 class="h2 text-center mt-5">VOTES</h2>
+
+    <table class="table table-striped w-75" style="margin:3rem auto; ">
+        <thead>
+          <tr style="font-size: 1.5rem; font-family: 'Roboto'; color: brown">
+            <th scope="col">Vote Name</th>
+            <th scope="col">Creation Date</th>
+            <th scope="col">Last Date</th>
+            <th scope="col">Use Vote</th>
+            
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in vote%}
+          <tr>
+           
+            <td>{{v.v_name}}</td>
+            <td>{{v.f_date}}</td>
+            <td>{{v.l_date}}</td>
+            <td><a class="btn btn-outline-primary btn-md" href="{% url 'usevote' v.v_code %}">Use Vote</a></td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table> 
+      
+      
+      <h2 class="h2 text-center mt-5">MY PREVIOUS VOTES</h2>
+
+      <h4 class="text-center mt-5">You can't view statistics before the voting is done</h4>
+
+      <table class="table table-striped w-75" style="margin:3rem auto;">
+        <thead>
+          <tr style="font-size: 1.5rem; color: brown;">
+            <th scope="col">Vote Name</th>
+            <th scope="col">My Answer</th>
+            <th scope="col">View Statistics</th>
+            <th scope="col">Last Date To Vote</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in stat %} <!--Alphanın oylarını al-->
+          <tr>
+           
+            <td>{{s.which_vote}}</td>
+            <td>{{s.value}}</td>
+            <td><a class="btn btn-outline-warning btn-sm"  href="{% url 'viewStats' s.which_vote  %}">View Statistics</a></td>
+            <td>{{s.l_date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <script>
+        function myFunction() {
+          document.getElementById("view").disabled = true;
+        }
+        </script>
+    {% endblock %}

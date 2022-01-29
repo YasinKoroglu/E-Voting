@@ -1,0 +1,32 @@
+{% extends 'evote/adminmain.html' %}
+{% block content %}
+
+<style>
+    body {
+        background-color: #fbeec1
+    }
+    </style>
+
+
+<h2 class="h2 text-center mt-5" style="font-family: 'Roboto';">TOTAL ELECTIONS</h2>
+<table class="table table-striped w-75" style="margin: 2rem auto; font-size: 1.25rem;">
+
+<thead>
+    <th>Election Name</th>
+    <th>Cancel Election</th>
+    <th>See Statistics</th>
+</thead>
+
+<tbody>
+    {% for v in vote %}
+    <tr>
+        <td>{{v.v_name}}</td>
+        <td><a href="{% url 'admincancel' %}" class="btn btn-danger">Cancel Election</a></td>
+        <td><a href="{% url 'adminviewStats' v.v_code%}" class="btn btn-warning">See Statistics</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+</table>
+
+{% endblock %}
